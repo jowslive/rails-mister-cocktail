@@ -26,7 +26,7 @@ class CocktailsController < ApplicationController
   private
 
   def cocktail_params
-    params.require(:cocktail).permit(:name, :image, :bootstrap_color)
+    params.require(:cocktail).permit(:name, :photo, :bootstrap_color)
   end
 
   # before show, edit, update and destroy run this code!

@@ -5,7 +5,7 @@
 <div class="container mt-5">
   <%= simple_form_for(@cocktail) do |f| %>
     <%= f.input :name, label_html: { class: 'text-white' } %>
-    <%= f.input :image, label_html: { class: 'text-white' }, label: 'Image URL' %>
+    <%= f.input :photo, as: :file, label_html: { class: 'text-white' }, label: 'Image URL' %>
     <%= f.input :bootstrap_color,
                 label: 'Color',
                 label_html: { class: 'text-white' },

@@ -7,9 +7,20 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Cocktail.destroy_all
 
-blue = Cocktail.create!(name: 'Blue Lagoon', bootstrap_color: 'primary', image: 'https://i.imgur.com/tC7dDXN.png')
-caipirinha = Cocktail.create!(name: 'Caipirinha', bootstrap_color: 'info', image: 'https://i.imgur.com/GqY6EzJ.png')
-Cocktail.create!(name: 'Margarita', bootstrap_color: 'danger', image: 'https://i.imgur.com/ZKJrWSv.png')
+pngblue = URI.open('https://i.imgur.com/tC7dDXN.png')
+blue = Cocktail.new(name: 'Blue Lagoon', bootstrap_color: 'primary')
+blue.photo.attach(io: pngblue, filename: 'blue.png', content_type: 'image/png')
+blue.save
+
+pngcaip = URI.open('https://i.imgur.com/GqY6EzJ.png')
+caipirinha = Cocktail.new(name: 'Caipirinha', bootstrap_color: 'info')
+caipirinha.photo.attach(io: pngcaip, filename: 'caip.png', content_type: 'image/png')
+caipirinha.save
+
+pngmarg = URI.open('https://i.imgur.com/ZKJrWSv.png')
+margarita = Cocktail.new(name: 'Margarita', bootstrap_color: 'danger')
+margarita.photo.attach(io: pngmarg, filename: 'caip.png', content_type: 'image/png')
+margarita.save
 
 Ingredient.destroy_all
 ice = Ingredient.create!(name: 'ice')
@@ -18,12 +29,12 @@ Ingredient.create!(name: 'mint leaves')
 
 Dose.create!(
   description: '10',
-  cocktail: blue,
+  cocktail_id: blue.id,
   ingredient: ice
 )
 
 Dose.create!(
   description: '5',
-  cocktail: caipirinha,
+  cocktail_id: caipirinha.id,
   ingredient: lemon
 )
