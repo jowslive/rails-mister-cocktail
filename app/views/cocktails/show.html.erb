@@ -23,7 +23,11 @@
             <% @cocktail.doses.each do |dose| %>
               <div class="d-flex justify-content-between">
                 <div class="text-white font-weight-normal">
-                  <%= link_to "🗑️", dose_path(dose), method: :delete, data: { confirm: 'Are you sure?'} %> <%= dose.ingredient.name %>
+                  <%= link_to "🗑️", dose_path(dose), 
+                      title: "Excluir",
+                      method: :delete, 
+                      data: { confirm: 'Are you sure?'} %> 
+                      <%= dose.ingredient.name %>
                 </div>
                 <div class="text-white font-weight-normal">
                   <%= dose.description %>
