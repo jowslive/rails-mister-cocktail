@@ -1,0 +1,40 @@
+<div class="main-container-show">
+  <div class="d-flex align-items-center h-100 justify-content-center">
+    <div class="col mb-2">
+      <div class="card text-white bg-dark border-dark rounded">
+        <div class="card-horizontal">
+          <img class="card-img-small rounded" src="https://source.unsplash.com/1600x900/?cocktails" alt="Card image cap">
+          <div class="card-body">
+            <div>
+              <h2 class="card-title text-primary"> 
+                <%= @cocktail.name %> 
+              </h2>
+            </div>
+            <div class="d-flex justify-content-between">
+              <div class="text-info" style="margin-left: 1.7em;">
+                Ingredient
+              </div>
+              <div class="text-info">
+                Amount
+              </div>
+            </div>
+            <% @cocktail.doses.each do |dose| %>
+              <div class="d-flex justify-content-between">
+                <div class="text-white">
+                  <%= link_to "🗑️", dose_path(dose), method: :delete %> <%= dose.ingredient.name %>
+                </div>
+                <div class="text-white">
+                  <%= dose.description %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <div class="card-footer">
+          <%= link_to "Create a Dose", new_cocktail_dose_path(@cocktail), class: "btn btn-success float-right" %>
+          <%= link_to "Go Back", root_path , class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

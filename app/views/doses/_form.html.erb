@@ -1,0 +1,8 @@
+<div class="container mt-5">
+  <%= simple_form_for [@cocktail, @dose] do |f| %>
+    <%= f.input :description, label_html: { class: 'text-white' } %>
+    <%= f.association :ingredient, collection: Ingredient.all, label_html: { class: 'text-white' } %>
+    <%= link_to 'Go Back', cocktail_path(@cocktail), class: "btn btn-primary text-white" %>
+    <%= f.submit class: "btn btn-success float-right text-white" %>
+  <% end %>
+</div>
