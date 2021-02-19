@@ -7,13 +7,23 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Cocktail.destroy_all
 
-cocktail = Cocktail.create!(name: 'Blue Lagoon')
-Cocktail.create!(name: 'Caipirinha')
-Cocktail.create!(name: 'Margarita')
+blue = Cocktail.create!(name: 'Blue Lagoon', bootstrap_color: 'primary', image: 'https://i.imgur.com/tC7dDXN.png')
+caipirinha = Cocktail.create!(name: 'Caipirinha', bootstrap_color: 'info', image: 'https://i.imgur.com/GqY6EzJ.png')
+Cocktail.create!(name: 'Margarita', bootstrap_color: 'danger', image: 'https://i.imgur.com/ZKJrWSv.png')
 
 Ingredient.destroy_all
-Ingredient.create!(name: 'ice')
-ingredient = Ingredient.create!(name: 'lemon')
+ice = Ingredient.create!(name: 'ice')
+lemon = Ingredient.create!(name: 'lemon')
 Ingredient.create!(name: 'mint leaves')
 
-Dose.create!(description: 'teste', cocktail: cocktail, ingredient: ingredient)
+Dose.create!(
+  description: '10',
+  cocktail: blue,
+  ingredient: ice
+)
+
+Dose.create!(
+  description: '5',
+  cocktail: caipirinha,
+  ingredient: lemon
+)

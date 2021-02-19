@@ -3,27 +3,29 @@
     <div class="col mb-2">
       <div class="card text-white bg-dark border-dark rounded">
         <div class="card-horizontal">
-          <img class="card-img-small rounded" src="https://source.unsplash.com/1600x900/?cocktails" alt="Card image cap">
+          <%= image_tag(@cocktail.image, class: "card-img-large rounded") %>
           <div class="card-body">
             <div>
-              <h2 class="card-title text-primary"> 
+              <h2 class="card-title text-primary font-weight-bold text-<%= @cocktail.bootstrap_color %>"> 
                 <%= @cocktail.name %> 
               </h2>
             </div>
+            <hr>
             <div class="d-flex justify-content-between">
-              <div class="text-info" style="margin-left: 1.7em;">
+              <div class="text-white font-weight-normal" style="margin-left: 1.5em;">
                 Ingredient
               </div>
-              <div class="text-info">
+              <div class="text-white font-weight-normal">
                 Amount
               </div>
             </div>
+            <hr>
             <% @cocktail.doses.each do |dose| %>
               <div class="d-flex justify-content-between">
-                <div class="text-white">
-                  <%= link_to "🗑️", dose_path(dose), method: :delete %> <%= dose.ingredient.name %>
+                <div class="text-white font-weight-normal">
+                  <%= link_to "🗑️", dose_path(dose), method: :delete, data: { confirm: 'Are you sure?'} %> <%= dose.ingredient.name %>
                 </div>
-                <div class="text-white">
+                <div class="text-white font-weight-normal">
                   <%= dose.description %>
                 </div>
               </div>
@@ -31,7 +33,7 @@
           </div>
         </div>
         <div class="card-footer">
-          <%= link_to "Create a Dose", new_cocktail_dose_path(@cocktail), class: "btn btn-success float-right" %>
+          <%= link_to "Create a Dose", new_cocktail_dose_path(@cocktail), class: "btn btn-success text-white float-right" %>
           <%= link_to "Go Back", root_path , class: "btn btn-primary" %>
         </div>
       </div>

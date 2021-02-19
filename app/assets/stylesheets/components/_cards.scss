@@ -4,7 +4,13 @@
 }
 
 .card-img-small {
-  width: 50%;
-  height: auto;
-  object-fit: cover;
+  width: 30%;
+  height: 20vh;
+  object-fit: fill;
+}
+
+.card-img-large {
+  width: 30%;
+  height: 60vh;
+  object-fit: fill;
 }
